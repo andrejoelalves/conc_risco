@@ -95,13 +95,13 @@
 
         .legend {
             text-align: left;
-            line-height: 13px;
+            line-height: 18px;
             color: #000000;
         }
 
         .legend i {
-            width: 12px;
-            height: 13px;
+            width: 17px;
+            height: 18px;
             float: left;
             margin-right: 10px;
             opacity: 1;
@@ -377,14 +377,10 @@
 
     // get color depending on population density value
     function getColor(d) {
-        return d > 479.9 ? '#4F0E09' :
-					d > 239.9 ? '#7C160F' :
-							d > 119.9 ? '#B63D17' :
-								d > 59.9 ? '#CC6B22' :
-									d > 19.9 ? '#E2A644' :
-												d > 0.1 ? '#F1D777' :
-													d = 0 ? '#A6A6A6' :
-														'#A6A6A6';
+        return 	d > 959.9 ? '#E94639' :
+					d > 479.9 ? '#F1A437' :
+						d > 239.9 ? '#FCD914' :
+										'#cccccc';
 										
     }
 
@@ -445,12 +441,12 @@
 
 
             var div = L.DomUtil.create('div', 'info legend'),
-                grades = [-1, 0.1, 19.9, 59.9, 119.9, 239.9, 479.9],
-                labels = ['0','≤ 20','20-60','60-120', '120-240','240-480', '≥ 480'],
+                grades = [-1, 239.9, 479.9, 959.9],
+                labels = ['Moderado (< 240)','Elevado (240-480)','Muito Elevado (480-960)', 'Extremamente Elevado (>960)'],
                 from, to;
 
 
-            div.innerHTML = '<FONT SIZE=2 style = "font-family:verdana"><b>Incidência cumulativa a 14 dias <br> por 100 mil habitantes</b><span>  <span class="brsmall"></span> '; // Títulos da legenda
+            div.innerHTML = '<FONT SIZE=2 style = "font-family:verdana"><b>Classificação de risco (Incidência cumulativa <br> a 14 dias por 100 mil habitantes)</b><span>  <span class="brsmall"></span> '; // Títulos da legenda
 
             for (var i = 0; i < grades.length; i++) {
                 div.innerHTML +=
